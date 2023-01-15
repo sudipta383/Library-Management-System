@@ -17,12 +17,12 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 class Library {
-    // fields to store book information
+    
     private String title;
     private String author;
     private int ISBN;
     private boolean availability;
-    // constructor
+    
     public Library(String title, String author, int ISBN, boolean availability) {
         this.title = title;
         this.author = author;
@@ -62,7 +62,7 @@ class Library {
         this.availability = availability;
     }
     
-    // method to check out a book
+   
     public void checkOut() {
         if (availability) {
             availability = false;
@@ -72,7 +72,7 @@ class Library {
         }
     }
     
-    // method to return a book
+    
     public void returnBook() {
         if (!availability) {
             availability = true;
@@ -91,12 +91,12 @@ public class LibraryAppUI extends JFrame {
     private JTabbedPane tabbedPane;
     private boolean isLoggedIn = false;
     public LibraryAppUI() {
-        // adding books to the library
+        
         books.add(new Library("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 123456789, true));
         books.add(new Library("To Kill a Mockingbird", "Harper Lee", 987654321, true));
         books.add(new Library("The Great Gatsby", "F. Scott Fitzgerald", 111111111, false));
     
-        // creating the login frame
+       
         loginFrame = new JFrame("Login");
         JLabel usernameLabel = new JLabel("Username:");
         usernameField = new JTextField(10);
@@ -114,27 +114,21 @@ public class LibraryAppUI extends JFrame {
         loginFrame.setSize(300, 150);
         loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         loginFrame.setVisible(true);
-            // creating the main frame
+           
     mainFrame = new JFrame("Library Management System");
     tabbedPane = new JTabbedPane();
-
-    // creating UI elements for check out and return
     JLabel checkOutLabel = new JLabel("Enter the number of the book you would like to check out:");
     checkOutField = new JTextField(10);
     JButton checkOutButton = new JButton("Check Out");
     checkOutButton.addActionListener(new CheckOutListener());
-
     JLabel returnLabel = new JLabel("Enter the number of the book you would like to return:");
     returnField = new JTextField(10);
     JButton returnButton = new JButton("Return");
     returnButton.addActionListener(new ReturnListener());
-
     JButton generateReportsButton = new JButton("Generate Reports");
     generateReportsButton.addActionListener(new GenerateReportsListener());
-
     JButton logoutButton = new JButton("Logout");
     logoutButton.addActionListener(new LogoutListener());
-
     JPanel checkOutPanel = new JPanel();
     checkOutPanel.add(checkOutLabel);
     checkOutPanel.add(checkOutField);
@@ -154,7 +148,7 @@ public class LibraryAppUI extends JFrame {
     tabbedPane.addTab("Check Out/Return", checkOutPanel);
     tabbedPane.addTab("Reports", reportPanel);
     tabbedPane.addTab("Logout", logoutPanel);
-        // creating a menu bar for navigating between pages
+        
         JMenuBar menuBar = new JMenuBar();
         JMenu menu = new JMenu("Navigation");
         JMenuItem booksMenuItem = new JMenuItem("Books");
@@ -206,7 +200,7 @@ public class LibraryAppUI extends JFrame {
     
     private class GenerateReportsListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            // code to generate reports
+            
             JOptionPane.showMessageDialog(null, "Generating reports...");
         }
     }
@@ -222,24 +216,24 @@ public class LibraryAppUI extends JFrame {
     
     private class BooksMenuListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            // code to navigate to the books section
+            
             JOptionPane.showMessageDialog(null, "Navigatingto the books section...");
             tabbedPane.setSelectedIndex(0);
         }
     }
     private class UsersMenuListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            // code to navigate to the users section
+           
             JOptionPane.showMessageDialog(null, "Navigating to the users section...");
-            // code to navigate to the users section
+           
         }
     }
     
     private class TransactionsMenuListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            // code to navigate to the transactions section
+            
             JOptionPane.showMessageDialog(null, "Navigating to the transactions section...");
-            // code to navigate to the transactions section
+           
         }
     }
     
